@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Raihan Siddik</title>
+    <style>
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .social-links a {
+        display: inline-block;
+        padding: 10px 18px;
+        color: white;
+        background-color: #1f2937;
+        text-decoration: none;
+        border-radius: 6px;
+        font-family: Arial, sans-serif;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .social-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+    }
+</style>
 </head>
 <body>
     <h1>Md. Raihan Siddik</h1>
@@ -21,10 +45,24 @@
 
     <p>This website is currently being updated.</p>
 
-    <p>
-        <a href="mailto:raihansiddik2006120@gmail.com">Email</a> |
-        <a href="https://github.com/RaihanSiddik2006120eee">GitHub</a> |
-        <a href="https://www.linkedin.com/in/raihan-siddik-2006120be/">LinkedIn</a>
-    </p>
+    <div class="social-links">
+
+    <a href="mailto:raihansiddik2006120@gmail.com">
+        Email
+    </a>
+
+    <a href="https://github.com/RaihanSiddik2006120eee"
+       target="_blank"
+       rel="noopener noreferrer">
+        GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/raihan-siddik-2006120be/"
+       target="_blank"
+       rel="noopener noreferrer">
+        LinkedIn
+    </a>
+
+</div>
 </body>
 </html>
