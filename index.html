@@ -1,1057 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Academic portfolio of Md. Raihan Siddik, focusing on computer vision, vision-language models, multimodal learning, trustworthy AI, and efficient deep learning."
-    >
-
-    <meta
-        name="keywords"
-        content="Md. Raihan Siddik, Computer Vision, Vision-Language Models, Deepfake Detection, LoRA, CLIP, Multimodal Learning, BUET"
-    >
-
-    <meta name="author" content="Md. Raihan Siddik">
-
-    <title>Md. Raihan Siddik | Academic Portfolio</title>
-
-    <style>
-        :root {
-            --background: #f8fafc;
-            --surface: #ffffff;
-            --surface-soft: #f1f5f9;
-            --text: #0f172a;
-            --muted: #475569;
-            --primary: #2563eb;
-            --primary-dark: #1e3a8a;
-            --border: #dbe3ee;
-            --success-background: #dcfce7;
-            --success-text: #166534;
-            --shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-            --radius: 16px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 88px;
-        }
-
-        body {
-            margin: 0;
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-            color: var(--text);
-            background: var(--background);
-            line-height: 1.7;
-        }
-
-        body.menu-open {
-            overflow: hidden;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        .container {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        /* Navigation */
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.94);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(14px);
-        }
-
-        .nav-container {
-            min-height: 74px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand {
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-size: 1.08rem;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 19px;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .menu-button {
-            display: none;
-            width: 46px;
-            height: 42px;
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .menu-line {
-            display: block;
-            width: 24px;
-            height: 2px;
-            margin: 5px auto;
-            border-radius: 10px;
-            background: var(--text);
-            transition:
-                transform 0.25s ease,
-                opacity 0.25s ease;
-        }
-
-        .menu-button.open .menu-line:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .menu-button.open .menu-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-button.open .menu-line:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Hero */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 130px 0 80px;
-            background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(37, 99, 235, 0.16),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    180deg,
-                    #ffffff 0%,
-                    #f8fafc 100%
-                );
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 0.65fr;
-            align-items: center;
-            gap: 58px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-weight: 800;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        h1 {
-            margin: 0;
-            max-width: 760px;
-            font-size: clamp(3rem, 7vw, 5.6rem);
-            line-height: 1;
-            letter-spacing: -0.045em;
-        }
-
-        .hero-title {
-            margin: 22px 0 0;
-            color: var(--primary-dark);
-            font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-            font-weight: 700;
-        }
-
-        .hero-description {
-            max-width: 780px;
-            margin: 18px 0 0;
-            color: var(--muted);
-            font-size: 1.08rem;
-        }
-
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .tag {
-            padding: 8px 12px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: white;
-            color: var(--muted);
-            font-size: 0.87rem;
-            font-weight: 700;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 31px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 11px 18px;
-            border: 1px solid transparent;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 800;
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
-        .button-primary {
-            color: white;
-            background: var(--primary);
-            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
-        }
-
-        .button-secondary {
-            color: var(--text);
-            background: white;
-            border-color: var(--border);
-        }
-
-        .profile-card {
-            padding: 25px;
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            background: white;
-            box-shadow: var(--shadow);
-        }
-
-        .profile-photo {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-
-        .profile-placeholder {
-            width: 100%;
-            aspect-ratio: 1;
-            display: grid;
-            place-items: center;
-            padding: 25px;
-            border-radius: 18px;
-            text-align: center;
-            color: var(--primary-dark);
-            background:
-                linear-gradient(
-                    135deg,
-                    #dbeafe,
-                    #eff6ff
-                );
-            font-weight: 800;
-        }
-
-        .profile-information {
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 0.94rem;
-        }
-
-        .profile-information p {
-            margin: 8px 0;
-        }
-
-        /* General sections */
-
-        section {
-            padding: 82px 0;
-        }
-
-        .alternate-section {
-            background: white;
-        }
-
-        .section-header {
-            margin-bottom: 35px;
-        }
-
-        .section-label {
-            display: inline-block;
-            margin-bottom: 9px;
-            color: var(--primary);
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-        }
-
-        .section-header h2 {
-            margin: 0;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            line-height: 1.15;
-            letter-spacing: -0.035em;
-        }
-
-        .section-header p {
-            max-width: 760px;
-            margin: 13px 0 0;
-            color: var(--muted);
-        }
-
-        .card {
-            padding: 26px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--surface);
-            box-shadow: var(--shadow);
-        }
-
-        .card h3 {
-            margin: 0 0 13px;
-            line-height: 1.35;
-        }
-
-        .card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .two-column-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .three-column-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        /* About */
-
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 25px;
-        }
-
-        .quick-facts {
-            display: grid;
-            gap: 13px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .quick-facts li {
-            padding: 14px 16px;
-            border-radius: 11px;
-            background: var(--surface-soft);
-        }
-
-        /* Research */
-
-        .status {
-            display: inline-block;
-            margin-bottom: 13px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            color: var(--success-text);
-            background: var(--success-background);
-            font-size: 0.8rem;
-            font-weight: 800;
-        }
-
-        .research-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .research-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 5px;
-            background: var(--primary);
-        }
-
-        .metric-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-            margin-top: 18px;
-        }
-
-        .metric {
-            padding: 8px 10px;
-            border-radius: 9px;
-            color: var(--muted);
-            background: var(--surface-soft);
-            font-size: 0.84rem;
-            font-weight: 800;
-        }
-
-        /* Expandable details */
-
-        details {
-            margin-top: 18px;
-            border-top: 1px solid var(--border);
-        }
-
-        summary {
-            padding-top: 16px;
-            color: var(--primary);
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        details ul {
-            margin-bottom: 0;
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        /* Publications */
-
-        .publication-item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 18px;
-            align-items: start;
-        }
-
-        .publication-year {
-            min-width: 70px;
-            padding: 8px 10px;
-            border-radius: 10px;
-            color: var(--primary-dark);
-            background: #dbeafe;
-            text-align: center;
-            font-weight: 900;
-        }
-
-        .publication-content h3 {
-            margin-top: 0;
-        }
-
-        .publication-meta {
-            color: var(--muted);
-            font-size: 0.93rem;
-        }
-
-        /* Projects */
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card .metric-list {
-            margin-top: auto;
-            padding-top: 16px;
-        }
-
-        /* Timeline */
-
-        .timeline {
-            display: grid;
-            gap: 21px;
-        }
-
-        .timeline-item {
-            padding: 24px 25px;
-            border-left: 4px solid var(--primary);
-            border-radius: 0 var(--radius) var(--radius) 0;
-            background: white;
-            box-shadow: var(--shadow);
-        }
-
-        .timeline-item h3 {
-            margin: 0;
-        }
-
-        .timeline-meta {
-            margin: 5px 0 11px;
-            color: var(--muted);
-            font-weight: 700;
-        }
-
-        /* Skills */
-
-        .skill-group h3 {
-            margin-bottom: 16px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-        }
-
-        .skill-tag {
-            padding: 8px 11px;
-            border-radius: 9px;
-            color: #3730a3;
-            background: #eef2ff;
-            font-size: 0.87rem;
-            font-weight: 800;
-        }
-
-        /* Coursework */
-
-        .course-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .course {
-            padding: 10px 12px;
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            color: var(--muted);
-            background: var(--surface-soft);
-            font-weight: 700;
-        }
-
-        /* CV */
-
-        .cv-box {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 25px;
-            padding: 36px;
-            border-radius: 22px;
-            color: white;
-            background:
-                linear-gradient(
-                    135deg,
-                    #172554,
-                    #2563eb
-                );
-        }
-
-        .cv-box h2 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        .cv-box p {
-            margin: 10px 0 0;
-            color: rgba(255, 255, 255, 0.83);
-        }
-
-        .cv-box .button {
-            color: var(--primary-dark);
-            background: white;
-        }
-
-        /* Contact */
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .contact-links {
-            display: grid;
-            gap: 12px;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 15px 17px;
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            color: var(--text);
-            background: white;
-            text-decoration: none;
-            font-weight: 800;
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-        .contact-link:hover {
-            transform: translateX(4px);
-            border-color: var(--primary);
-        }
-
-        footer {
-            padding: 28px 0;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            background: white;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* Reveal effect */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition:
-                opacity 0.65s ease,
-                transform 0.65s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Tablet and mobile */
-
-        @media (max-width: 1050px) {
-            .nav-links {
-                gap: 13px;
-            }
-
-            .nav-links a {
-                font-size: 0.82rem;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .menu-button {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 74px;
-                right: -100%;
-                width: min(330px, 88%);
-                height: calc(100vh - 74px);
-                padding: 28px;
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 4px;
-                overflow-y: auto;
-                border-left: 1px solid var(--border);
-                background: white;
-                box-shadow: -12px 15px 35px rgba(15, 23, 42, 0.13);
-                transition: right 0.3s ease;
-            }
-
-            .nav-links.open {
-                right: 0;
-            }
-
-            .nav-links a {
-                padding: 13px 10px;
-                border-bottom: 1px solid var(--border);
-                font-size: 0.96rem;
-            }
-
-            .hero-grid,
-            .about-layout,
-            .two-column-grid,
-            .three-column-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-card {
-                max-width: 430px;
-            }
-
-            .cv-box {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                width: min(100% - 26px, 1120px);
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 115px 0 65px;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            section {
-                padding: 62px 0;
-            }
-
-            .card {
-                padding: 21px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-buttons .button {
-                width: 100%;
-            }
-
-            .publication-item {
-                grid-template-columns: 1fr;
-            }
-
-            .publication-year {
-                width: fit-content;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Top navigation -->
-
-    <nav class="navbar">
-        <div class="container nav-container">
-
-            <a class="brand" href="#home">
-                Md. Raihan Siddik
-            </a>
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navigationLinks"
-            >
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-            </button>
-
-            <div class="nav-links" id="navigationLinks">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
-                <a href="#publications">Publications</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#coursework">Coursework</a>
-                <a href="#cv">CV</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-        </div>
-    </nav>
-
-    <!-- Home -->
-
-    <header class="hero" id="home">
-        <div class="container hero-grid">
-
-            <div>
-                <span class="eyebrow">
-                    Computer Vision and Multimodal AI Researcher
-                </span>
-
-                <h1>
-                    Md. Raihan Siddik
-                </h1>
-
-                <p class="hero-title">
-                    Computer Vision · Vision-Language Models ·
-                    Trustworthy AI · Efficient Deep Learning
-                </p>
-
-                <p class="hero-description">
-                    I am an Electrical and Electronic Engineering graduate
-                    from Bangladesh University of Engineering and Technology
-                    with a major in Communication and Signal Processing.
-                    My work focuses on reliable and parameter-efficient
-                    visual intelligence systems.
-                </p>
-
-                <div class="tag-list">
-                    <span class="tag">Computer Vision</span>
-                    <span class="tag">Vision-Language Models</span>
-                    <span class="tag">Multimodal Learning</span>
-                    <span class="tag">Deepfake Detection</span>
-                    <span class="tag">Industrial Anomaly Detection</span>
-                    <span class="tag">LoRA</span>
-                    <span class="tag">CLIP</span>
-                </div>
-
-                <div class="hero-buttons">
-
-                    <a
-                        class="button button-primary"
-                        href="mailto:raihansiddik2006120@gmail.com"
-                    >
-                        Email Me
-                    </a>
-
-                    <a
-                        class="button button-secondary"
-                        href="assets/Raihan-Siddik-CV.pdf"
-                        target="_blank"
-                    >
-                        View CV
-                    </a>
-
-                    <a
-                        class="button button-secondary"
-                        href="https://github.com/RaihanSiddik2006120eee"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        GitHub
-                    </a>
-
-                    <a
-                        class="button button-secondary"
-                        href="https://www.linkedin.com/in/raihan-siddik-2006120be/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        LinkedIn
-                    </a>
-
-                </div>
-            </div>
-
-            <aside class="profile-card">
-
-                <!--
-                After uploading your photo to assets/profile.jpg,
-                delete the profile-placeholder block below and use:
-
-                <img
-                    class="profile-photo"
-                    src="assets/profile.jpg"
-                    alt="Md. Raihan Siddik"
-                >
-                -->
-
-                <img
-                    class="profile-photo"
-                    src="assets/profile.jpg"
-                    alt="Md. Raihan Siddik"
-                >
-
-                <div class="profile-information">
-                    <p>
-                        <strong>Location:</strong>
-                        Dhaka, Bangladesh
-                    </p>
-
-                    <p>
-                        <strong>Education:</strong>
-                        B.Sc. in EEE, BUET
-                    </p>
-
-                    <p>
-                        <strong>Major:</strong>
-                        Communication and Signal Processing
-                    </p>
-
-                    <p>
-                        <strong>Graduation:</strong>
-                        June 2026
-                    </p>
-                </div>
-
-            </aside>
-
-        </div>
-    </header>
-
-    <main>
-
-        <!-- About -->
-
-        <section id="about">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Profile</span>
-
-                    <h2>About Me</h2>
-
-                    <p>
-                        My academic background combines signal processing,
-                        computer vision, deep learning, multimodal systems,
-                        and embedded intelligent systems.
-                    </p>
-                </div>
-
-                <div class="about-layout">
-
-                    <article class="card reveal">
-                        <h3>Academic and Research Profile</h3>
-
-                        <p>
-                            I completed my B.Sc. in Electrical and Electronic
-                            Engineering from Bangladesh University of
-                            Engineering and Technology, with a major in
-                            Communication and Signal Processing.
-                        </p>
-
-                        <p>
-                            My research focuses on computer vision,
-                            vision-language models, multimodal learning,
-                            trustworthy AI, media forensics, industrial
-                            anomaly detection, and parameter-efficient
-                            fine-tuning.
-                        </p>
-
-                        <p>
-                            I have experience implementing PyTorch pipelines,
-                            designing cross-dataset experiments, conducting
-                            ablation studies, and analyzing the generalization
-                            behavior of deep learning models.
-                        </p>
-
-                        <p>
-                            My long-term goal is to develop reliable,
-                            efficient, and generalizable multimodal AI systems
-                            for real-world applications.
-                        </p>
-                    </article>
-
-                    <aside class="card reveal">
-                        <h3>Quick Facts</h3>
-
-                        <ul class="quick-facts">
-                            <li>
-                                <strong>University:</strong>
-                                Bangladesh University of Engineering and
-                                Technology
-                            </li>
-
-                            <li>
-                                <strong>CGPA:</strong>
-                                3.54 / 4.00
-                            </li>
-
-                            <li>
-                                <strong>Last two semesters:</strong>
-                                3.84 / 4.00
-                            </li>
-
-                            <li>
-                                <strong>Current goal:</strong>
-                                PhD in computer vision and multimodal AI
-                            </li>
-
-                            <li>
-                                <strong>Research manuscripts:</strong>
-                                Two first-author works in preparation
-                            </li>
-                        </ul>
-                    </aside>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Research -->
-
-        <section class="alternate-section" id="research">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Research</span>
-
-                    <h2>Research Experience</h2>
-
-                    <p>
-                        My current research addresses generalization,
-                        frequency-domain representation, parameter-efficient
-                        adaptation, and trustworthy visual AI.
-                    </p>
-                </div>
-
-                <div class="two-column-grid">
-
-                    <article class="card research-card reveal">
-
-                        <span class="status">
-                            First-author manuscript in preparation
-                        </span>
-
-                        <h3>
+<html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Md. Raihan Siddik — BUET EEE graduate researching computer vision, trustworthy AI and parameter-efficient learning. Explore research, publications and engineering projects."><meta name="theme-color" content="#090e18"><meta property="og:title" content="Md. Raihan Siddik | Research &amp; Engineering"><meta property="og:description" content="Computer vision. Trustworthy AI. Efficient learning."><meta property="og:type" content="website"><title>Md. Raihan Siddik — Research &amp; Engineering</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/main.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a><div class="scroll-progress" aria-hidden="true"></div>
+<nav class="navbar" aria-label="Main navigation"><div class="container nav-inner"><a class="brand" href="#home" aria-label="Raihan Siddik home"><span class="brand-mark">r<span>.</span></span><span>RAIHAN SIDDIK</span></a><div class="nav-links" id="navigationLinks"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a class="nav-contact" href="#contact">Let’s talk <span>↗</span></a></div><div class="nav-actions"><button id="themeButton" class="icon-button" aria-label="Switch to light theme" title="Switch theme">☼</button><button id="menuButton" class="icon-button menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="navigationLinks">☰</button></div></div></nav>
+<header class="hero" id="home"><canvas id="network" aria-hidden="true"></canvas><div class="hero-glow" aria-hidden="true"></div><div class="container hero-grid"><div class="hero-copy"><div class="availability"><span></span> OPEN TO PhD &amp; RESEARCH OPPORTUNITIES</div><p class="hero-intro">Hi, I’m Md. Raihan Siddik.</p><h1>Building AI<br>that sees.<br><em>And understands.</em></h1><p class="hero-description">Exploring the intersection of <strong>computer vision</strong>,<br class="desktop-break"> <strong>multimodal learning</strong> and <strong>trustworthy AI.</strong><br>EEE graduate from BUET. Researcher. Engineer.</p><div class="hero-buttons"><a class="button button-primary" href="#research">Explore my research <span>↗</span></a><a class="button button-secondary" href="assets/Raihan-Siddik-CV.pdf" target="_blank" rel="noopener">View CV <span>↓</span></a></div><div class="hero-footnote"><span>BASED IN DHAKA, BANGLADESH</span><span class="local-time" id="dhakaTime"></span></div></div><div class="hero-visual"><div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div><div class="portrait-wrap"><img src="assets/profile.jpg" alt="Portrait of Md. Raihan Siddik" width="600" height="600" fetchpriority="high"><div class="portrait-caption"><span>RESEARCH / ENGINEERING</span><strong>Curiosity into impact.</strong></div></div><div class="float-label label-one"><span class="tiny-icon">⌘</span><div><small>RESEARCH FOCUS</small><strong>Efficient intelligence</strong></div></div><div class="float-label label-two"><span class="signal-dot"></span><div><small>FREQUENCY → REPRESENTATION</small><strong>Beyond what meets the eye.</strong></div></div><div class="visual-coordinate" aria-hidden="true">23.8103° N   90.4125° E</div></div></div><a class="scroll-cue" href="#research"><span>SCROLL TO EXPLORE</span> ↓</a></header>
+<main id="main"><div class="focus-strip"><div class="container"><span>COMPUTER VISION</span><b>✳</b><span>MULTIMODAL AI</span><b>✳</b><span>PARAMETER-EFFICIENT LEARNING</span><b>✳</b><span>SIGNAL PROCESSING</span></div></div>
+<section id="research"><div class="container"><div class="section-header reveal"><span class="section-label">01 / RESEARCH</span><h2>Less computation.<br><span>More possibility.</span></h2><p>Learning robust visual representations with efficient adaptation and frequency-aware methods.</p></div><div class="two-column-grid research-grid"><article class="card research-card reveal">
+
+                        <span class="status">IEEE TDSC · Under review</span>
+
+                        <span class="research-number">01</span><h3>
                             FaLoRA: Parameter-Efficient Frequency-Aware
                             Adaptation for Generalizable Deepfake Detection
                         </h3>
@@ -1071,8 +28,8 @@
                         </p>
 
                         <div class="metric-list">
-                            <span class="metric">0.94M trainable parameters</span>
-                            <span class="metric">Approximately 2% trainable</span>
+                            <span class="metric">Frequency-aware LoRA</span>
+                            <span class="metric">Approximately 1% trainable</span>
                             <span class="metric">Cross-dataset evaluation</span>
                         </div>
 
@@ -1111,23 +68,13 @@
                             </ul>
                         </details>
 
-                    </article>
+                    </article><article class="card research-card reveal">
 
-                    <article class="card research-card reveal">
+                        <span class="status">ICECE 2026 · Under review</span>
 
-                        <span class="status">
-                            Ongoing research
-                        </span>
+                        <span class="research-number">02</span><h3>CLIP-LoRA for Few-Shot Industrial Anomaly Detection</h3>
 
-                        <h3>
-                            CLIP-LoRA for Industrial Anomaly Detection
-                        </h3>
-
-                        <p>
-                            Ongoing research supervised by
-                            Professor Dr. S. M. Mahbubur Rahman,
-                            Department of EEE, BUET.
-                        </p>
+                        <p>First-author manuscript submitted to ICECE 2026; under review. Supervised by Professor Dr. S. M. Mahbubur Rahman, Department of EEE, BUET.</p>
 
                         <p>
                             This work investigates parameter-efficient
@@ -1164,116 +111,14 @@
                                     object and texture categories.
                                 </li>
 
-                                <li>
-                                    Preparing comparative experiments,
-                                    ablation studies, and reproducible
-                                    evaluation.
-                                </li>
+                                <li>Conducted comparative experiments and ablation studies; evaluated representation quality and transfer to unseen defect patterns and product categories.</li>
                             </ul>
                         </details>
 
-                    </article>
+                    </article><article class="card research-card research-wide reveal"><span class="status">ICECE 2026 · Under review</span><span class="research-number">03</span><h3>Image Super-Resolution Using Wavelet Residual Convolutional Neural Networks</h3><p>Second-author manuscript · WaveSRResNet</p><p>Spatial-wavelet learning for high-fidelity image reconstruction. Contributed to a Wavelet Residual Block combining spatial-domain convolution with forward and inverse discrete wavelet transforms to preserve edges and high-frequency textures.</p><div class="metric-list"><span class="metric">Up to 4.8% higher PSNR · 8×</span><span class="metric">Up to 8% higher SSIM · 8×</span><span class="metric">9% lower LPIPS · 4×</span></div><details><summary>View research details</summary><ul><li>Evaluated reconstruction on standard super-resolution benchmarks.</li><li>Analyzed spectral bias, edge sharpness, perceptual fidelity and reconstruction quality.</li><li>Submitted to ICECE 2026; under review.</li></ul></details></article></div></div></section><section id="publications"><div class="container"><div class="section-header reveal"><span class="section-label">02 / PUBLICATIONS &amp; UPDATES</span><h2>Research in progress.</h2><p>Manuscripts and submission updates. Under-review work is not yet accepted or published.</p></div>
+<div class="publication-layout"><div class="publication-list"><article class="publication-row reveal"><span class="pub-index">01</span><div><div class="pub-top"><span class="status">IEEE TDSC · Under review</span><span class="mono">2026</span></div><h3>FaLoRA: Parameter-Efficient Frequency-Aware Adaptation for Generalizable Deepfake Detection</h3><p>Md. Raihan Siddik · First-author manuscript</p><p>Submitted to IEEE Transactions on Dependable and Secure Computing (TDSC).</p><a class="text-link" href="#research">Explore the research ↗</a></div></article><article class="publication-row reveal"><span class="pub-index">02</span><div><div class="pub-top"><span class="status">ICECE 2026 · Under review</span><span class="mono">2026</span></div><h3>Image Super-Resolution Using Wavelet Residual Convolutional Neural Networks</h3><p>Md. Raihan Siddik · Second-author manuscript</p><p>Spatial-wavelet learning for high-fidelity image reconstruction.</p><a class="text-link" href="#research">Explore the research ↗</a></div></article><article class="publication-row reveal"><span class="pub-index">03</span><div><div class="pub-top"><span class="status">ICECE 2026 · Under review</span><span class="mono">2026</span></div><h3>CLIP-LoRA for Few-Shot Industrial Anomaly Detection</h3><p>Md. Raihan Siddik · First-author manuscript</p><p>Parameter-efficient adaptation of the CLIP visual encoder with limited labeled data.</p><a class="text-link" href="#research">Explore the research ↗</a></div></article></div><aside class="updates-card reveal"><span class="section-label">LATEST UPDATES</span><h3>From the notebook.</h3><div class="update"><span>2026 / SUBMISSIONS</span><p>Two manuscripts submitted to <strong>ICECE 2026</strong> and currently under review.</p></div><div class="update"><span>2026 / JOURNAL</span><p><strong>FaLoRA</strong> submitted to IEEE TDSC. Currently under review.</p></div><div class="update"><span>JUNE 2026 / MILESTONE</span><p>Completed my B.Sc. in Electrical and Electronic Engineering at <strong>BUET.</strong></p></div></aside></div></div></section><section id="projects"><div class="container"><div class="section-header reveal"><span class="section-label">03 / SELECTED PROJECTS</span><h2>Ideas, put to work.</h2><p>From spatial audio and autonomous vision to renewable energy systems.</p></div><div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" aria-pressed="true">All projects <span>03</span></button><button class="filter" data-filter="ai" aria-pressed="false">AI &amp; embedded systems</button><button class="filter" data-filter="power" aria-pressed="false">Power &amp; energy</button></div><p class="sr-only" id="filterStatus" aria-live="polite"></p><div class="project-grid"><article class="card project-card reveal" data-category="ai">
 
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications -->
-
-        <section id="publications">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Research Outputs</span>
-
-                    <h2>Publications and Manuscripts</h2>
-
-                    <p>
-                        These works are currently under preparation. Their
-                        status is stated clearly and should be updated after
-                        submission, acceptance, or publication.
-                    </p>
-                </div>
-
-                <div class="timeline">
-
-                    <article class="card publication-item reveal">
-
-                        <div class="publication-year">
-                            2026
-                        </div>
-
-                        <div class="publication-content">
-                            <h3>
-                                FaLoRA: Parameter-Efficient Frequency-Aware
-                                Adaptation for Generalizable Deepfake Detection
-                            </h3>
-
-                            <p class="publication-meta">
-                                Md. Raihan Siddik · First-author manuscript ·
-                                Manuscript in preparation
-                            </p>
-
-                            <p>
-                                Frequency-guided parameter-efficient
-                                adaptation of Vision Transformers for
-                                cross-dataset deepfake detection.
-                            </p>
-                        </div>
-
-                    </article>
-
-                    <article class="card publication-item reveal">
-
-                        <div class="publication-year">
-                            2026
-                        </div>
-
-                        <div class="publication-content">
-                            <h3>
-                                CLIP-LoRA for Industrial Anomaly Detection
-                            </h3>
-
-                            <p class="publication-meta">
-                                Md. Raihan Siddik · First-author research
-                                manuscript · Ongoing work
-                            </p>
-
-                            <p>
-                                Parameter-efficient adaptation of CLIP for
-                                few-shot industrial anomaly and defect
-                                recognition.
-                            </p>
-                        </div>
-
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-
-        <section class="alternate-section" id="projects">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Engineering</span>
-
-                    <h2>Selected Projects</h2>
-
-                    <p>
-                        Projects involving multimodal learning, real-time
-                        inference, autonomous systems, embedded computing,
-                        and computer vision.
-                    </p>
-                </div>
-
-                <div class="two-column-grid">
-
-                    <article class="card project-card reveal">
-
-                        <h3>
+                        <div class="project-art audio-art" aria-hidden="true"><i style="--i:0;--h:20%"></i><i style="--i:1;--h:57%"></i><i style="--i:2;--h:94%"></i><i style="--i:3;--h:46%"></i><i style="--i:4;--h:83%"></i><i style="--i:5;--h:35%"></i><i style="--i:6;--h:72%"></i><i style="--i:7;--h:24%"></i><i style="--i:8;--h:61%"></i><i style="--i:9;--h:98%"></i><i style="--i:10;--h:50%"></i><i style="--i:11;--h:87%"></i><i style="--i:12;--h:39%"></i><i style="--i:13;--h:76%"></i><i style="--i:14;--h:28%"></i><i style="--i:15;--h:65%"></i><i style="--i:16;--h:102%"></i><i style="--i:17;--h:54%"></i><i style="--i:18;--h:91%"></i><i style="--i:19;--h:43%"></i><i style="--i:20;--h:80%"></i><i style="--i:21;--h:32%"></i><i style="--i:22;--h:69%"></i><i style="--i:23;--h:21%"></i><i style="--i:24;--h:58%"></i><i style="--i:25;--h:95%"></i><i style="--i:26;--h:47%"></i><i style="--i:27;--h:84%"></i><i style="--i:28;--h:36%"></i><i style="--i:29;--h:73%"></i><i style="--i:30;--h:25%"></i><i style="--i:31;--h:62%"></i><i style="--i:32;--h:99%"></i><i style="--i:33;--h:51%"></i><i style="--i:34;--h:88%"></i><i style="--i:35;--h:40%"></i><span>01 / SPATIAL AUDIO</span></div><div class="project-body"><h3>
                             Real-Time Audio-Visual Zooming System
                         </h3>
 
@@ -1320,11 +165,9 @@
                             <span class="metric">TFLite int8</span>
                         </div>
 
-                    </article>
+                    </div></article><article class="card project-card reveal" data-category="ai">
 
-                    <article class="card project-card reveal">
-
-                        <h3>
+                        <div class="project-art vision-art" aria-hidden="true"><div class="terrain"></div><div class="scan-box"></div><span>02 / AUTONOMOUS VISION</span></div><div class="project-body"><h3>
                             UAV-Based Vegetation Stress Mapping for Tea Gardens
                         </h3>
 
@@ -1368,26 +211,70 @@
                             <span class="metric">ArduPilot</span>
                         </div>
 
+                    </div></article><article class="card project-card reveal" data-category="power"><div class="project-art power-art" aria-hidden="true"><svg viewbox="0 0 600 150"><path d="M0 75 Q25 -30 50 75 T100 75 T150 75 T200 75 T250 75 T300 75 T350 75 T400 75 T450 75 T500 75 T550 75 T600 75"></path></svg><span>03 / RENEWABLE ENERGY</span></div><div class="project-body"><h3>Harmonic Mitigation in a 9-Bus Power System</h3><p>Power system study examining harmonics introduced by a solar system and other harmonic-generating components.</p><details><summary>View project details</summary><p>Investigated harmonic mitigation in a 9-bus system, with attention to power quality and power factor correction.</p></details><div class="metric-list"><span class="metric">Solar integration</span><span class="metric">Power quality</span><span class="metric">9-bus system</span></div></div></article></div></div></section><section id="about">
+            <div class="container">
+
+                <div class="section-header reveal"><span class="section-label">04 / THE PERSON BEHIND THE WORK</span><h2>Engineering meets curiosity.</h2></div>
+
+                <div class="about-layout">
+
+                    <article class="card reveal">
+                        <h3>Academic and Research Profile</h3>
+
+                        <p>
+                            I completed my B.Sc. in Electrical and Electronic
+                            Engineering from Bangladesh University of
+                            Engineering and Technology, with a major in
+                            Communication and Signal Processing.
+                        </p>
+
+                        <p>My research spans computer vision, parameter-efficient learning, frequency-aware Vision Transformer adaptation, CLIP-LoRA anomaly detection, wavelet-based image super-resolution, and audio-visual learning.</p>
+
+                        <p>
+                            I have experience implementing PyTorch pipelines,
+                            designing cross-dataset experiments, conducting
+                            ablation studies, and analyzing the generalization
+                            behavior of deep learning models.
+                        </p>
+
+                        <p>I am interested in extending this work toward vision-language models, multimodal large language models and trustworthy AI, including applications in medical imaging, biomedical signal and image analysis, and healthcare.</p>
                     </article>
+
+                    <aside class="card reveal">
+                        <h3>Quick Facts</h3>
+
+                        <ul class="quick-facts">
+                            <li>
+                                <strong>University:</strong>
+                                Bangladesh University of Engineering and
+                                Technology
+                            </li>
+
+                            <li>
+                                <strong>CGPA:</strong>
+                                3.54 / 4.00
+                            </li>
+
+                            <li>
+                                <strong>Last two semesters:</strong>
+                                3.84 / 4.00
+                            </li>
+
+                            <li>
+                                <strong>Current goal:</strong>
+                                PhD in computer vision and multimodal AI
+                            </li>
+
+                            <li>
+                                <strong>Research manuscripts:</strong>
+                                IEEE TDSC and ICECE 2026 submissions under review
+                            </li>
+                        </ul>
+                    </aside>
 
                 </div>
             </div>
-        </section>
-
-        <!-- Education -->
-
-        <section id="education">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Academic Background</span>
-
-                    <h2>Education</h2>
-                </div>
-
-                <div class="timeline">
-
-                    <article class="timeline-item reveal">
+        </section><section id="journey"><div class="container"><div class="section-header reveal"><span class="section-label">05 / BACKGROUND</span><h2>A foundation for discovery.</h2></div><div class="two-column-grid"><div class="journey-column"><h3 class="column-label">EDUCATION</h3><article class="timeline-item reveal">
 
                         <h3>
                             Bangladesh University of Engineering and Technology
@@ -1411,26 +298,7 @@
                             3.84 / 4.00
                         </p>
 
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-
-        <section class="alternate-section" id="experience">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Professional Exposure</span>
-
-                    <h2>Research and Industrial Experience</h2>
-                </div>
-
-                <div class="timeline">
-
-                    <article class="timeline-item reveal">
+                    </article><article class="timeline-item reveal"><h3>Higher Secondary Certificate (HSC)</h3><div class="timeline-meta">Dinajpur Board · 2020</div><p>GPA: 5.00 / 5.00</p></article><article class="timeline-item reveal"><h3>Secondary School Certificate (SSC)</h3><div class="timeline-meta">Dinajpur Board · 2018</div><p>GPA: 5.00 / 5.00</p></article></div><div class="journey-column"><h3 class="column-label">EXPERIENCE</h3><article class="timeline-item reveal">
 
                         <h3>
                             Undergraduate Researcher
@@ -1448,9 +316,7 @@
                             experimentation.
                         </p>
 
-                    </article>
-
-                    <article class="timeline-item reveal">
+                    </article><article class="timeline-item reveal">
 
                         <h3>
                             Bangladesh Submarine Cable Company Limited
@@ -1466,22 +332,10 @@
                             peering, and network monitoring operations.
                         </p>
 
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-
-        <section id="skills">
+                    </article></div></div></div></section><section id="skills">
             <div class="container">
 
-                <div class="section-header reveal">
-                    <span class="section-label">Technical Profile</span>
-
-                    <h2>Skills</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-label">06 / TOOLKIT</span><h2>Built with the right tools.</h2><p>The languages, frameworks and research practices behind my work.</p></div>
 
                 <div class="two-column-grid">
 
@@ -1543,20 +397,12 @@
                         </div>
                     </article>
 
-                </div>
+                <article class="card skill-group reveal"><h3>Imaging &amp; Representation</h3><div class="skill-tags"><span class="skill-tag">CNNs</span><span class="skill-tag">Image super-resolution</span><span class="skill-tag">Discrete wavelet transforms</span><span class="skill-tag">Transfer learning</span><span class="skill-tag">Medical-imaging foundations</span><span class="skill-tag">Frequency-domain analysis</span></div></article><article class="card skill-group reveal"><h3>Evaluation &amp; Experimentation</h3><div class="skill-tags"><span class="skill-tag">ROC / AUC</span><span class="skill-tag">PSNR</span><span class="skill-tag">SSIM</span><span class="skill-tag">LPIPS</span><span class="skill-tag">PESQ</span><span class="skill-tag">STOI</span><span class="skill-tag">Dataset curation</span><span class="skill-tag">Error analysis</span><span class="skill-tag">Cross-dataset validation</span></div></article></div>
             </div>
-        </section>
-
-        <!-- Coursework -->
-
-        <section class="alternate-section" id="coursework">
+        </section><section class="alternate-section" id="coursework">
             <div class="container">
 
-                <div class="section-header reveal">
-                    <span class="section-label">Academic Preparation</span>
-
-                    <h2>Relevant Coursework</h2>
-                </div>
+                <div class="section-header reveal"><span class="section-label">07 / FOUNDATIONS</span><h2>Academic groundwork.</h2></div>
 
                 <div class="card reveal">
                     <div class="course-list">
@@ -1599,263 +445,4 @@
                 </div>
 
             </div>
-        </section>
-
-        <!-- CV -->
-
-        <section id="cv">
-            <div class="container">
-
-                <div class="cv-box reveal">
-
-                    <div>
-                        <h2>Curriculum Vitae</h2>
-
-                        <p>
-                            View my complete academic background, research
-                            experience, projects, skills, and references.
-                        </p>
-                    </div>
-
-                    <a
-                        class="button"
-                        href="assets/Raihan-Siddik-CV.pdf"
-                        target="_blank"
-                    >
-                        Open CV
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-
-        <section class="alternate-section" id="contact">
-            <div class="container">
-
-                <div class="section-header reveal">
-                    <span class="section-label">Get in Touch</span>
-
-                    <h2>Contact</h2>
-
-                    <p>
-                        I am interested in PhD opportunities and research
-                        collaborations in computer vision, multimodal AI,
-                        trustworthy AI, media forensics, and
-                        vision-language models.
-                    </p>
-                </div>
-
-                <div class="contact-grid">
-
-                    <article class="card reveal">
-                        <h3>Research Interests</h3>
-
-                        <p>
-                            Computer vision, vision-language models,
-                            multimodal foundation models, multimodal
-                            learning, parameter-efficient deep learning,
-                            deepfake detection, media forensics, industrial
-                            visual anomaly detection, autonomous visual
-                            systems, signal processing, and trustworthy AI.
-                        </p>
-                    </article>
-
-                    <div class="contact-links reveal">
-
-                        <a
-                            class="contact-link"
-                            href="mailto:raihansiddik2006120@gmail.com"
-                        >
-                            <span>Email</span>
-                            <span>↗</span>
-                        </a>
-
-                        <a
-                            class="contact-link"
-                            href="https://github.com/RaihanSiddik2006120eee"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>GitHub</span>
-                            <span>↗</span>
-                        </a>
-
-                        <a
-                            class="contact-link"
-                            href="https://www.linkedin.com/in/raihan-siddik"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>LinkedIn</span>
-                            <span>↗</span>
-                        </a>
-
-                        <a
-                            class="contact-link"
-                            href="assets/Raihan-Siddik-CV.pdf"
-                            target="_blank"
-                        >
-                            <span>Curriculum Vitae</span>
-                            <span>↗</span>
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            © <span id="currentYear"></span> Md. Raihan Siddik.
-            Academic and research portfolio.
-        </div>
-    </footer>
-
-    <script>
-        const menuButton = document.getElementById("menuButton");
-        const navigationLinks =
-            document.getElementById("navigationLinks");
-
-        const navigationItems =
-            navigationLinks.querySelectorAll("a");
-
-        menuButton.addEventListener("click", () => {
-            const isOpen =
-                navigationLinks.classList.toggle("open");
-
-            menuButton.classList.toggle("open", isOpen);
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-            document.body.classList.toggle(
-                "menu-open",
-                isOpen
-            );
-        });
-
-        navigationItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                navigationLinks.classList.remove("open");
-                menuButton.classList.remove("open");
-                document.body.classList.remove("menu-open");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            });
-        });
-
-        document.addEventListener("click", (event) => {
-            const clickedInsideMenu =
-                navigationLinks.contains(event.target);
-
-            const clickedMenuButton =
-                menuButton.contains(event.target);
-
-            if (
-                !clickedInsideMenu &&
-                !clickedMenuButton &&
-                navigationLinks.classList.contains("open")
-            ) {
-                navigationLinks.classList.remove("open");
-                menuButton.classList.remove("open");
-                document.body.classList.remove("menu-open");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            }
-        });
-
-        const revealElements =
-            document.querySelectorAll(".reveal");
-
-        const revealObserver =
-            new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-                        }
-                    });
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-        revealElements.forEach((element) => {
-            revealObserver.observe(element);
-        });
-
-        const sections =
-            document.querySelectorAll(
-                "header[id], main section[id]"
-            );
-
-        const navigationAnchors =
-            document.querySelectorAll(
-                ".nav-links a"
-            );
-
-        const sectionObserver =
-            new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        navigationAnchors.forEach(
-                            (anchor) => {
-                                anchor.classList.remove(
-                                    "active"
-                                );
-                            }
-                        );
-
-                        const activeAnchor =
-                            document.querySelector(
-                                `.nav-links a[href="#${entry.target.id}"]`
-                            );
-
-                        if (activeAnchor) {
-                            activeAnchor.classList.add(
-                                "active"
-                            );
-                        }
-                    });
-                },
-                {
-                    rootMargin: "-35% 0px -55% 0px"
-                }
-            );
-
-        sections.forEach((section) => {
-            sectionObserver.observe(section);
-        });
-
-        document.getElementById(
-            "currentYear"
-        ).textContent = new Date().getFullYear();
-    </script>
-
-</body>
-
-</html>
+        </section><section id="contact"><div class="container"><div class="contact-shell reveal"><div class="contact-orb" aria-hidden="true"></div><span class="section-label">08 / WHAT’S NEXT?</span><h2>Let’s explore<br><em>what’s possible.</em></h2><p>I’m interested in PhD opportunities and collaborations in computer vision, multimodal learning and trustworthy AI.</p><a class="button button-primary" href="mailto:raihansiddik2006120@gmail.com">Start a conversation <span>↗</span></a><div class="email-row"><a href="mailto:raihansiddik2006120@gmail.com">raihansiddik2006120@gmail.com</a><button id="copyEmail" class="copy-button" aria-label="Copy email address">Copy email</button><span id="copyStatus" role="status"></span></div><div class="social-links"><a href="https://github.com/RaihanSiddik2006120eee" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/raihan-siddik" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="assets/Raihan-Siddik-CV.pdf" target="_blank" rel="noopener">Curriculum vitae ↗</a></div></div></div></section></main><footer><div class="container footer-inner"><a class="brand" href="#home">RAIHAN SIDDIK<span class="accent">.</span></a><span>© <span id="currentYear">2026</span> Md. Raihan Siddik</span><a href="#home">Back to top ↑</a></div></footer></body></html>
